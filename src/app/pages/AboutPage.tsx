@@ -1,0 +1,205 @@
+import { motion } from 'motion/react';
+import { Zap, Brain, ClipboardCheck } from 'lucide-react';
+import { HeroSection } from '../components/HeroSection';
+import { CTASection } from '../components/CTASection';
+import { FAQSection } from '../components/FAQSection';
+import { Footer } from '../components/Footer';
+import imgRectangle65 from "@/assets/89dd8ac4ed83f9856783dd3402ef5ab26f806874.png";
+import imgImage from "@/assets/7c35fc75a0fc95cf45ef35b04d8b77f7fc3238f2.png";
+import imgImage1 from "@/assets/aa85e067bf682cd9ec260d455e193b0f44601e66.png";
+import imgImage2 from "@/assets/fe820f9ac239e102d537d52fc22ce0b1fcc88ce8.png";
+import imgImage3 from "@/assets/31d85061e14ee16f50c82e9fca4e6bd2161d3649.png";
+import imgPattern from "@/assets/e3a8fcd893cc5c0ef6565c9d62f52fad24dd9381.png";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true } as const,
+  transition: { duration: 0.6 },
+};
+
+export default function AboutPage() {
+  return (
+    <div className="bg-[#fff1e5]">
+      {/* Hero */}
+      <HeroSection
+        backgroundImage={imgRectangle65}
+        title={
+          <div className="text-[#fff1e5] text-5xl sm:text-7xl md:text-9xl lg:text-[160px] leading-[1] capitalize">
+            <span className="font-['DM_Sans',sans-serif] tracking-[-1px] md:tracking-[-3px]">About </span>
+            <span className="font-['Instrument_Serif',serif] italic">Us</span>
+          </div>
+        }
+        subtitle="We transform ideas into compelling designs that captivate and convert"
+      />
+
+      {/* Brown section - Creative Concept */}
+      <section className="relative bg-[#361e0f] overflow-hidden">
+        {/* Pattern overlay */}
+        <div className="absolute inset-0">
+          <img src={imgPattern} alt="" className="w-full h-full object-cover opacity-30" />
+        </div>
+
+        <div className="relative z-10 px-6 md:px-16 lg:px-24 py-16 md:py-24 flex flex-col lg:flex-row gap-10 lg:gap-16">
+          {/* Left content */}
+          <motion.div {...fadeInUp} className="lg:w-1/2 flex flex-col gap-8">
+            <div>
+              <p className="text-white text-3xl sm:text-5xl md:text-7xl leading-[1.2]">
+                <span className="font-['Manrope',sans-serif]">We Made </span>
+                <span className="font-['Instrument_Serif',serif] capitalize text-4xl sm:text-6xl md:text-8xl">New Creative Concept</span>
+              </p>
+            </div>
+            <p className="font-['Raleway',sans-serif] text-white text-sm md:text-lg leading-[1.6]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id at mauris dis tincidunt ipsum faucibus ipsum. At laoreet vivamus ultrices dolor vel nisl. Leo, ultrices enim vel feugiat lectus nisi, phasellus egestas.
+            </p>
+            <p className="font-['Raleway',sans-serif] text-white text-sm md:text-lg leading-[1.6]">
+              Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero. At elit eu lacus, quam neque arcu euismod.
+            </p>
+
+            {/* Stats */}
+            <div className="flex gap-8 md:gap-16 mt-4">
+              {[
+                { number: '10', label: 'Year\nexperience' },
+                { number: '231', label: 'Properties\nbuild' },
+                { number: '20', label: 'Awards\ngained' },
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.15 }}
+                >
+                  <p className="font-['Manrope',sans-serif] text-[#e3d27d] text-4xl md:text-7xl">{stat.number}</p>
+                  <p className="font-['Raleway',sans-serif] text-white text-sm md:text-lg whitespace-pre-line mt-2">{stat.label}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <p className="font-['Manrope',sans-serif] text-white text-xl md:text-3xl mt-4">
+              Lorem ipsum dolor sit amet
+            </p>
+          </motion.div>
+
+          {/* Right images */}
+          <div className="lg:w-1/2 flex flex-col md:flex-row lg:flex-col gap-6">
+            <div className="flex flex-row gap-6 flex-1">
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="w-1/2 h-[250px] md:h-[400px]"
+              >
+                <img src={imgImage} alt="Interior" className="w-full h-full object-cover" />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="w-1/2 h-[250px] md:h-[400px]"
+              >
+                <img src={imgImage1} alt="Interior" className="w-full h-full object-cover" />
+              </motion.div>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="h-[250px] md:h-[400px] flex-1"
+            >
+              <img src={imgImage2} alt="Interior" className="w-full h-full object-cover" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* We Create - Home More Aesthetic */}
+      <section className="bg-[#fff1e5] px-6 md:px-16 lg:px-24 py-16 md:py-24">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 mb-10 md:mb-16">
+          <motion.div {...fadeInUp} className="lg:w-1/2">
+            <p className="text-[#131714] text-3xl md:text-5xl lg:text-7xl leading-[1.2]">
+              <span className="font-['Manrope',sans-serif]">We Create</span><br />
+              <span className="font-['Instrument_Serif',serif]">Home More Aesthetic</span>
+            </p>
+            <p className="font-['Raleway',sans-serif] text-[#6f7470] text-sm md:text-lg leading-[1.6] mt-6">
+              Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero. At elit eu lacus, quam neque arcu euismod.
+            </p>
+          </motion.div>
+          <motion.div {...fadeInUp} transition={{ duration: 0.6, delay: 0.2 }} className="lg:w-1/2">
+            <p className="font-['Raleway',sans-serif] text-[#6f7470] text-sm md:text-lg leading-[1.6]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id at mauris dis tincidunt ipsum faucibus ipsum. At laoreet vivamus ultrices dolor vel nisl. Leo, ultrices enim vel feugiat lectus nisi, phasellus egestas. Nullam tellus aliquam, sed nulla sed purus vitasse. urna est, viverra sed etiam quisque.
+            </p>
+            <p className="font-['Raleway',sans-serif] text-[#6f7470] text-sm md:text-lg leading-[1.6] mt-6">
+              Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero. At elit eu lacus, quam neque arcu euismod. At id in auctor posuere eget. Convallis varius laoreet.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Video/Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="relative w-full h-[300px] md:h-[500px] lg:h-[700px] overflow-hidden"
+        >
+          <img src={imgImage3} alt="Interior showcase" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center"
+            >
+              <svg width="24" height="28" viewBox="0 0 24 28" fill="white">
+                <path d="M24 14L0 28V0L24 14Z" />
+              </svg>
+            </motion.button>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="bg-[#fff1e5] px-6 md:px-16 lg:px-24 py-16 md:py-24">
+        <motion.div {...fadeInUp} className="text-center mb-10 md:mb-16">
+          <p className="text-[#131714] text-3xl md:text-5xl lg:text-7xl">
+            <span className="font-['DM_Sans',sans-serif]">Why </span>
+            <span className="font-['Instrument_Serif',serif]">Choose Us</span>
+          </p>
+          <p className="font-['Raleway',sans-serif] text-[#6f7470] text-sm md:text-lg leading-[1.6] mt-6 max-w-[744px] mx-auto">
+            Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero. At elit eu lacus, quam neque arcu euismod.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+          {[
+            { title: 'Fast Building', desc: 'Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero.', icon: Zap },
+            { title: 'Smartly Execute', desc: 'Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero.', icon: Brain },
+            { title: 'Carefully Planned', desc: 'Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero.', icon: ClipboardCheck },
+          ].map((card, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              whileHover={{ y: -5 }}
+              className="bg-[#361e0f] p-8 md:p-10 flex flex-col gap-5"
+            >
+              <div className="w-16 h-16 rounded-lg bg-[#974200]/20 flex items-center justify-center">
+                <card.icon className="w-8 h-8 text-[#e3d27d]" strokeWidth={1.5} />
+              </div>
+              <p className="font-['DM_Sans',sans-serif] text-white text-2xl md:text-4xl">{card.title}</p>
+              <p className="font-['Raleway',sans-serif] text-white text-sm md:text-lg leading-[1.6]">{card.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <CTASection />
+      <FAQSection />
+      <Footer />
+    </div>
+  );
+}
