@@ -8,8 +8,8 @@ import { cloudImg, projects } from '@/lib/cloudinary';
 import { supabase } from '@/lib/supabase';
 
 const heroImg = cloudImg(projects.senett.images[0], { w: 1280, h: 720 });
-const contactImg1 = cloudImg(projects.jalan.images[2], { w: 600, h: 450 });
-const contactImg2 = cloudImg(projects.metropolitan.images[3], { w: 600, h: 450 });
+const contactImg1 = cloudImg(projects.jalan.images[2], { w: 900, h: 675 });
+const contactImg2 = cloudImg(projects.metropolitan.images[3], { w: 900, h: 675 });
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },

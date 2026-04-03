@@ -8,10 +8,10 @@ import { cloudImg, projects } from '@/lib/cloudinary';
 import imgPattern from "@/assets/e3a8fcd893cc5c0ef6565c9d62f52fad24dd9381.png";
 
 const imgRectangle65 = cloudImg(projects.aljunied.hero, { w: 1280, h: 720 });
-const imgImage = cloudImg(projects.woodlands436.images[0], { w: 400, h: 530 });
-const imgImage1 = cloudImg(projects.woodlands436.images[1], { w: 400, h: 530 });
-const imgImage2 = cloudImg(projects.senett.hero, { w: 800, h: 530 });
-const imgImage3 = cloudImg(projects.sembawang.hero, { w: 1000, h: 640 });
+const imgImage = cloudImg(projects.woodlands436.images[0], { w: 800, h: 1060 });
+const imgImage1 = cloudImg(projects.woodlands436.images[1], { w: 800, h: 1060 });
+const imgImage2 = cloudImg(projects.senett.hero, { w: 1200, h: 800 });
+const imgImage3 = cloudImg(projects.sembawang.hero, { w: 1400, h: 900 });
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },

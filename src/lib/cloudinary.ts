@@ -10,7 +10,7 @@ export function cloudImg(
   publicId: string,
   options: { w?: number; h?: number; crop?: string; q?: string; f?: string; dpr?: number } = {}
 ): string {
-  const { w, h, crop = 'fill', q = 'auto:low', f = 'auto', dpr } = options;
+  const { w, h, crop = 'fill', q = 'auto:good', f = 'auto', dpr } = options;
   const transforms = [`c_${crop}`, `q_${q}`, `f_${f}`];
   if (w) transforms.push(`w_${w}`);
   if (h) transforms.push(`h_${h}`);

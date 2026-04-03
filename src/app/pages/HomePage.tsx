@@ -21,37 +21,37 @@ export default function HomePage() {
     {
       name: '20 Sims Drive',
       desc: 'Modern living space renovation',
-      main: cloudImg(projects.simsdr.hero, { w: 720, h: 480 }),
-      side1: cloudImg(projects.simsdr.images[0], { w: 360, h: 480 }),
-      side2: cloudImg(projects.simsdr.images[1], { w: 360, h: 260 }),
+      main: cloudImg(projects.simsdr.hero, { w: 1080, h: 720 }),
+      side1: cloudImg(projects.simsdr.images[0], { w: 540, h: 720 }),
+      side2: cloudImg(projects.simsdr.images[1], { w: 540, h: 390 }),
     },
     {
       name: '224a Tengah Empyrean',
       desc: 'Contemporary interior redesign',
-      main: cloudImg(projects.tengah.hero, { w: 720, h: 480 }),
-      side1: cloudImg(projects.tengah.images[0], { w: 360, h: 480 }),
-      side2: cloudImg(projects.tengah.images[1], { w: 360, h: 260 }),
+      main: cloudImg(projects.tengah.hero, { w: 1080, h: 720 }),
+      side1: cloudImg(projects.tengah.images[0], { w: 540, h: 720 }),
+      side2: cloudImg(projects.tengah.images[1], { w: 540, h: 390 }),
     },
     {
       name: '233B Upper Aljunied',
       desc: 'Elegant home transformation',
-      main: cloudImg(projects.aljunied.hero, { w: 720, h: 480 }),
-      side1: cloudImg(projects.aljunied.images[0], { w: 360, h: 480 }),
-      side2: cloudImg(projects.aljunied.images[1], { w: 360, h: 260 }),
+      main: cloudImg(projects.aljunied.hero, { w: 1080, h: 720 }),
+      side1: cloudImg(projects.aljunied.images[0], { w: 540, h: 720 }),
+      side2: cloudImg(projects.aljunied.images[1], { w: 540, h: 390 }),
     },
     {
       name: '285 Choa Chu Kang',
       desc: 'Warm residential styling',
-      main: cloudImg(projects.choachukang.hero, { w: 720, h: 480 }),
-      side1: cloudImg(projects.choachukang.images[0], { w: 360, h: 480 }),
-      side2: cloudImg(projects.choachukang.images[1], { w: 360, h: 260 }),
+      main: cloudImg(projects.choachukang.hero, { w: 1080, h: 720 }),
+      side1: cloudImg(projects.choachukang.images[0], { w: 540, h: 720 }),
+      side2: cloudImg(projects.choachukang.images[1], { w: 540, h: 390 }),
     },
     {
       name: 'Jalan',
       desc: 'Luxury space renovation',
-      main: cloudImg(projects.jalan.hero, { w: 720, h: 480 }),
-      side1: cloudImg(projects.jalan.images[0], { w: 360, h: 480 }),
-      side2: cloudImg(projects.jalan.images[1], { w: 360, h: 260 }),
+      main: cloudImg(projects.jalan.hero, { w: 1080, h: 720 }),
+      side1: cloudImg(projects.jalan.images[0], { w: 540, h: 720 }),
+      side2: cloudImg(projects.jalan.images[1], { w: 540, h: 390 }),
     },
   ];
 
@@ -194,7 +194,7 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="md:w-1/4 h-[250px] md:h-[300px]"
           >
-            <img src={cloudImg(projects.tengah.images[0], { w: 300, h: 400 })} alt="Interior design" loading="lazy" className="w-full h-full object-cover" />
+            <img src={cloudImg(projects.tengah.images[0], { w: 600, h: 800 })} alt="Interior design" loading="lazy" className="w-full h-full object-cover" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -203,7 +203,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="md:w-3/4 h-[300px] md:h-[500px] lg:h-[620px]"
           >
-            <img src={cloudImg(projects.simsdr.hero, { w: 800, h: 530 })} alt="Interior design" loading="lazy" className="w-full h-full object-cover" />
+            <img src={cloudImg(projects.simsdr.hero, { w: 1200, h: 800 })} alt="Interior design" loading="lazy" className="w-full h-full object-cover" />
           </motion.div>
         </div>
       </section>

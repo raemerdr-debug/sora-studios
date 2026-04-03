@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import { motion } from 'motion/react';
 import { cloudImg, projects } from '@/lib/cloudinary';
 
-const ctaImage = cloudImg(projects.simsdr.hero, { w: 1280, h: 540 });
+const ctaImage = cloudImg(projects.simsdr.hero, { w: 1920, h: 800 });
 
 export function CTASection() {
   return (
