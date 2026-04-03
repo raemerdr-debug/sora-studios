@@ -185,27 +185,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Images */}
-        <div className="flex flex-col md:flex-row gap-4 mt-10 md:mt-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="md:w-1/4 h-[250px] md:h-[300px]"
-          >
-            <img src={cloudImg(projects.tengah.images[0], { w: 600, h: 800 })} alt="Interior design" loading="lazy" className="w-full h-full object-cover" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="md:w-3/4 h-[300px] md:h-[500px] lg:h-[620px]"
-          >
-            <img src={cloudImg(projects.simsdr.hero, { w: 1200, h: 800 })} alt="Interior design" loading="lazy" className="w-full h-full object-cover" />
-          </motion.div>
-        </div>
       </section>
 
       {/* Portfolio section */}
