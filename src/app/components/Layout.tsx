@@ -1,11 +1,12 @@
 import { Outlet, useLocation } from 'react-router';
 import { Navbar } from './Navbar';
-import { useEffect, useLayoutEffect } from 'react';
+import { PageLoader } from './PageLoader';
+import { useLayoutEffect } from 'react';
 
 export function Layout() {
   const location = useLocation();
 
-  // Scroll to top on every route change — useLayoutEffect ensures it runs before paint
+  // Scroll to top on every route change
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, [location.key]);
@@ -13,9 +14,11 @@ export function Layout() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main>
-        <Outlet />
-      </main>
+      <PageLoader locationKey={location.key}>
+        <main>
+          <Outlet />
+        </main>
+      </PageLoader>
     </div>
   );
 }
