@@ -6,6 +6,7 @@ import { CTASection } from '../components/CTASection';
 import { FAQSection } from '../components/FAQSection';
 import { Footer } from '../components/Footer';
 import { supabase } from '@/lib/supabase';
+import { cloudImg, projects } from '@/lib/cloudinary';
 import type { Database } from '@/lib/database.types';
 
 type Project = Database['public']['Tables']['projects']['Row'];
@@ -66,8 +67,7 @@ export default function ProjectsPage() {
     fetchProjects();
   }, []);
 
-  // First project hero for page background
-  const heroImg = allProjects[0]?.hero_image || '';
+  const heroImg = cloudImg(projects.tengah.hero, { w: 1920, h: 1080 });
 
   // Split projects into rows
   const row1 = allProjects.slice(0, 3);

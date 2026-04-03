@@ -3,7 +3,7 @@ import { HeroSection } from '../components/HeroSection';
 import { FAQSection } from '../components/FAQSection';
 import { Footer } from '../components/Footer';
 import { cloudImg, projects } from '@/lib/cloudinary';
-const imgRectangle64 = cloudImg(projects.simsdr.hero, { w: 1280, h: 720 });
+const imgRectangle64 = cloudImg(projects.woodlands436.hero, { w: 1920, h: 1080 });
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
 const teamMembers = [
