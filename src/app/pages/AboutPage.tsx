@@ -4,12 +4,14 @@ import { HeroSection } from '../components/HeroSection';
 import { CTASection } from '../components/CTASection';
 import { FAQSection } from '../components/FAQSection';
 import { Footer } from '../components/Footer';
-import imgRectangle65 from "@/assets/89dd8ac4ed83f9856783dd3402ef5ab26f806874.png";
-import imgImage from "@/assets/7c35fc75a0fc95cf45ef35b04d8b77f7fc3238f2.png";
-import imgImage1 from "@/assets/aa85e067bf682cd9ec260d455e193b0f44601e66.png";
-import imgImage2 from "@/assets/fe820f9ac239e102d537d52fc22ce0b1fcc88ce8.png";
-import imgImage3 from "@/assets/31d85061e14ee16f50c82e9fca4e6bd2161d3649.png";
+import { cloudImg, projects } from '@/lib/cloudinary';
 import imgPattern from "@/assets/e3a8fcd893cc5c0ef6565c9d62f52fad24dd9381.png";
+
+const imgRectangle65 = cloudImg(projects.aljunied.hero, { w: 1280, h: 720 });
+const imgImage = cloudImg(projects.woodlands436.images[0], { w: 400, h: 530 });
+const imgImage1 = cloudImg(projects.woodlands436.images[1], { w: 400, h: 530 });
+const imgImage2 = cloudImg(projects.senett.hero, { w: 800, h: 530 });
+const imgImage3 = cloudImg(projects.sembawang.hero, { w: 1000, h: 640 });
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -91,7 +93,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.6 }}
                 className="w-1/2 h-[250px] md:h-[400px]"
               >
-                <img src={imgImage} alt="Interior" className="w-full h-full object-cover" />
+                <img src={imgImage} alt="Interior" className="w-full h-full object-cover" loading="lazy" />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
@@ -100,7 +102,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.15 }}
                 className="w-1/2 h-[250px] md:h-[400px]"
               >
-                <img src={imgImage1} alt="Interior" className="w-full h-full object-cover" />
+                <img src={imgImage1} alt="Interior" className="w-full h-full object-cover" loading="lazy" />
               </motion.div>
             </div>
             <motion.div
@@ -110,7 +112,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="h-[250px] md:h-[400px] flex-1"
             >
-              <img src={imgImage2} alt="Interior" className="w-full h-full object-cover" />
+              <img src={imgImage2} alt="Interior" className="w-full h-full object-cover" loading="lazy" />
             </motion.div>
           </div>
         </div>
@@ -146,7 +148,7 @@ export default function AboutPage() {
           transition={{ duration: 0.7 }}
           className="relative w-full h-[300px] md:h-[500px] lg:h-[700px] overflow-hidden"
         >
-          <img src={imgImage3} alt="Interior showcase" className="w-full h-full object-cover" />
+          <img src={imgImage3} alt="Interior showcase" className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.button
               whileHover={{ scale: 1.1 }}

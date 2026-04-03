@@ -2,7 +2,8 @@ import { motion } from 'motion/react';
 import { HeroSection } from '../components/HeroSection';
 import { FAQSection } from '../components/FAQSection';
 import { Footer } from '../components/Footer';
-import imgRectangle64 from "@/assets/31d85061e14ee16f50c82e9fca4e6bd2161d3649.png";
+import { cloudImg, projects } from '@/lib/cloudinary';
+const imgRectangle64 = cloudImg(projects.simsdr.hero, { w: 1280, h: 720 });
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
 const teamMembers = [

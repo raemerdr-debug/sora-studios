@@ -43,6 +43,7 @@ export function Navbar() {
                 >
                   <Link
                     to={link.path}
+                    onClick={() => window.scrollTo(0, 0)}
                     className={`px-5 py-2.5 rounded-full border transition-all duration-300 font-['Poppins',sans-serif] text-base no-underline whitespace-nowrap block ${
                       isActive
                         ? 'bg-[#fff1e5] text-[#0f0e0c] border-[#fff1e5]'
@@ -89,6 +90,7 @@ export function Navbar() {
             >
               <Link
                 to="/contact"
+                onClick={() => window.scrollTo(0, 0)}
                 className="flex items-center justify-center px-5 py-2.5 rounded-full bg-[rgba(255,241,229,0.1)] border border-[rgba(255,241,229,0.5)] text-[#fff1e5] font-['DM_Sans',sans-serif] text-base no-underline hover:bg-[rgba(255,241,229,0.2)] transition-all duration-300 whitespace-nowrap"
               >
                 Book a Consultation
@@ -120,7 +122,7 @@ export function Navbar() {
                 >
                   <Link
                     to={link.path}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={() => { setMobileOpen(false); window.scrollTo(0, 0); }}
                     className={`px-8 py-3 rounded-full border text-xl font-['Poppins',sans-serif] no-underline transition-all block ${
                       isActive
                         ? 'bg-[#fff1e5] text-[#0f0e0c] border-[#fff1e5]'
@@ -140,7 +142,7 @@ export function Navbar() {
             >
               <Link
                 to="/contact"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => { setMobileOpen(false); window.scrollTo(0, 0); }}
                 className="px-8 py-3 rounded-full bg-[#974200] text-[#fff1e5] border border-[#974200] text-xl font-['DM_Sans',sans-serif] no-underline block"
               >
                 Book a Consultation

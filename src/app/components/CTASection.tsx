@@ -1,7 +1,8 @@
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
+import { cloudImg, projects } from '@/lib/cloudinary';
 
-const ctaImage = "https://images.unsplash.com/photo-1681310483042-64aa6776f112?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwbW9vZHklMjBpbnRlcmlvciUyMGRlc2lnbiUyMHNob3djYXNlfGVufDF8fHx8MTc3MjcyODU0MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+const ctaImage = cloudImg(projects.simsdr.hero, { w: 1280, h: 540 });
 
 export function CTASection() {
   return (
@@ -47,6 +48,7 @@ export function CTASection() {
           src={ctaImage}
           alt="Interior design showcase"
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         <Link
           to="/contact"

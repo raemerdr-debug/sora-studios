@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { HeroSection } from '../components/HeroSection';
 import { FAQSection } from '../components/FAQSection';
 import { Footer } from '../components/Footer';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { cloudImg, projects } from '@/lib/cloudinary';
+import { supabase } from '@/lib/supabase';
 
-const heroImg = "https://images.unsplash.com/photo-1763647972062-5e9cd48fb282?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBpbnRlcmlvciUyMGRlc2lnbiUyMGxpdmluZyUyMHJvb20lMjB3YXJtfGVufDF8fHx8MTc3MjcyODUzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
-const contactImg1 = "https://images.unsplash.com/photo-1769366316790-dfcb6a546f05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3p5JTIwaW50ZXJpb3IlMjBkZWNvcmF0aW9uJTIwd2FybSUyMHRvbmVzfGVufDF8fHx8MTc3MjcyODU0Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
-const contactImg2 = "https://images.unsplash.com/photo-1758548157747-285c7012db5b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcGFydG1lbnQlMjBpbnRlcmlvciUyMHNwYWNpb3VzfGVufDF8fHx8MTc3MjcyODU0Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+const heroImg = cloudImg(projects.senett.images[0], { w: 1280, h: 720 });
+const contactImg1 = cloudImg(projects.jalan.images[2], { w: 600, h: 450 });
+const contactImg2 = cloudImg(projects.metropolitan.images[3], { w: 600, h: 450 });
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -18,6 +20,27 @@ const fadeInUp = {
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
+
+    setStatus('sending');
+    const { error } = await supabase
+      .from('contact_messages')
+      .insert({ name: formData.name, email: formData.email, message: formData.message });
+
+    if (error) {
+      setStatus('error');
+      console.error('Supabase error:', error);
+    } else {
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    }
+
+    setTimeout(() => setStatus('idle'), 4000);
+  };
 
   return (
     <div className="bg-[#fff1e5]">
@@ -70,10 +93,11 @@ export default function ContactPage() {
               <span className="font-['Instrument_Serif',serif] italic">Us</span>
             </p>
 
-            <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
               <input
                 type="text"
                 placeholder="Name"
+                required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full px-5 py-4 border border-[#d9d9d9] rounded-lg bg-white font-['Satoshi',sans-serif] text-[#131714] placeholder:text-[#999] focus:outline-none focus:border-[#974200] transition-colors"
@@ -81,24 +105,52 @@ export default function ContactPage() {
               <input
                 type="email"
                 placeholder="Email address"
+                required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-5 py-4 border border-[#d9d9d9] rounded-lg bg-white font-['Satoshi',sans-serif] text-[#131714] placeholder:text-[#999] focus:outline-none focus:border-[#974200] transition-colors"
               />
               <textarea
                 placeholder="Message"
+                required
                 rows={5}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full px-5 py-4 border border-[#d9d9d9] rounded-lg bg-white font-['Satoshi',sans-serif] text-[#131714] placeholder:text-[#999] focus:outline-none focus:border-[#974200] transition-colors resize-none"
               />
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-[#974200] text-white px-8 py-4 rounded-full font-['Satoshi',sans-serif] text-xs tracking-[1.8px] uppercase w-fit hover:bg-[#7a3600] transition-colors"
-              >
-                Send Message
-              </motion.button>
+              <div className="flex items-center gap-4">
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  disabled={status === 'sending'}
+                  className="bg-[#974200] text-white px-8 py-4 rounded-full font-['Satoshi',sans-serif] text-xs tracking-[1.8px] uppercase w-fit hover:bg-[#7a3600] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {status === 'sending' ? 'Sending...' : 'Send Message'}
+                </motion.button>
+                <AnimatePresence>
+                  {status === 'success' && (
+                    <motion.p
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="font-['Satoshi',sans-serif] text-green-700 text-sm"
+                    >
+                      Message sent successfully!
+                    </motion.p>
+                  )}
+                  {status === 'error' && (
+                    <motion.p
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="font-['Satoshi',sans-serif] text-red-600 text-sm"
+                    >
+                      Failed to send. Please try again.
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </div>
             </form>
           </motion.div>
         </div>

@@ -6,14 +6,8 @@ import { CTASection } from '../components/CTASection';
 import { FAQSection } from '../components/FAQSection';
 import { Footer } from '../components/Footer';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { cloudImg, projects } from '@/lib/cloudinary';
 import imgRectangle67 from "@/assets/cb9db9abc7dcc8b935de132918e5dfd892df0c0d.png";
-import imgRectangle65 from "@/assets/0170da730236d3cdccbe513f071b8d2a91779ed6.png";
-import imgRectangle66 from "@/assets/bf7d0cf68bdcc66437a7818f2fc4ab1a7e5ea3c2.png";
-import imgRectangle12 from "@/assets/9d4ed617594bb87af71381b0d0499daf141f0af1.png";
-import imgRectangle13 from "@/assets/de1f917c8bf2b7a9d1ce0dd9b4cb7ea763a941c2.png";
-import imgRectangle14 from "@/assets/2e4798d09b61654295bfe339a7225511e054636b.png";
-import imgRectangle15 from "@/assets/6ccd5c3dfb6de3135773dd4daf28f952dc71a967.png";
-import svgPaths from "../../imports/svg-0xc8fwsz8l";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -25,39 +19,39 @@ const fadeInUp = {
 export default function HomePage() {
   const portfolioProjects = [
     {
-      name: 'Home Decoration',
+      name: '20 Sims Drive',
       desc: 'Modern living space renovation',
-      main: imgRectangle12,
-      side1: imgRectangle13,
-      side2: imgRectangle14,
+      main: cloudImg(projects.simsdr.hero, { w: 720, h: 480 }),
+      side1: cloudImg(projects.simsdr.images[0], { w: 360, h: 480 }),
+      side2: cloudImg(projects.simsdr.images[1], { w: 360, h: 260 }),
     },
     {
-      name: 'Urban Loft',
-      desc: 'Contemporary loft redesign',
-      main: 'https://images.unsplash.com/photo-1672927936377-97d1be3976cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtb2Rlcm4lMjBsaXZpbmclMjByb29tJTIwaW50ZXJpb3IlMjBkZXNpZ258ZW58MXx8fHwxNzcyNzQzNDMyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      side1: 'https://images.unsplash.com/photo-1763419161907-1e00b2f883c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwYmVkcm9vbSUyMGludGVyaW9yJTIwd2FybSUyMHRvbmVzfGVufDF8fHx8MTc3Mjc1MTczMnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      side2: imgRectangle15,
+      name: '224a Tengah Empyrean',
+      desc: 'Contemporary interior redesign',
+      main: cloudImg(projects.tengah.hero, { w: 720, h: 480 }),
+      side1: cloudImg(projects.tengah.images[0], { w: 360, h: 480 }),
+      side2: cloudImg(projects.tengah.images[1], { w: 360, h: 260 }),
     },
     {
-      name: 'Serene Retreat',
-      desc: 'Minimalist bedroom styling',
-      main: 'https://images.unsplash.com/photo-1771888703720-6a55f70dcbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwZGluaW5nJTIwcm9vbSUyMGludGVyaW9yJTIwY29udGVtcG9yYXJ5fGVufDF8fHx8MTc3Mjc1MTczMnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      side1: imgRectangle12,
-      side2: 'https://images.unsplash.com/photo-1772567732996-bc693c4a016c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBraXRjaGVuJTIwaW50ZXJpb3IlMjBkZXNpZ24lMjBtYXJibGV8ZW58MXx8fHwxNzcyNzMyNjM0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      name: '233B Upper Aljunied',
+      desc: 'Elegant home transformation',
+      main: cloudImg(projects.aljunied.hero, { w: 720, h: 480 }),
+      side1: cloudImg(projects.aljunied.images[0], { w: 360, h: 480 }),
+      side2: cloudImg(projects.aljunied.images[1], { w: 360, h: 260 }),
     },
     {
-      name: 'Cozy Nook',
-      desc: 'Warm reading corner design',
-      main: 'https://images.unsplash.com/photo-1764923753986-c3f564e295d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3p5JTIwcmVhZGluZyUyMG5vb2slMjBpbnRlcmlvciUyMHdhcm0lMjBsaWdodGluZ3xlbnwxfHx8fDE3NzI3NTE3MzN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      side1: 'https://images.unsplash.com/photo-1752769041878-f24e37fd6aea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBiYXRocm9vbSUyMGludGVyaW9yJTIwc3BhJTIwZGVzaWdufGVufDF8fHx8MTc3Mjc1MTczM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      side2: imgRectangle13,
+      name: '285 Choa Chu Kang',
+      desc: 'Warm residential styling',
+      main: cloudImg(projects.choachukang.hero, { w: 720, h: 480 }),
+      side1: cloudImg(projects.choachukang.images[0], { w: 360, h: 480 }),
+      side2: cloudImg(projects.choachukang.images[1], { w: 360, h: 260 }),
     },
     {
-      name: 'Spa Sanctuary',
-      desc: 'Luxury bathroom transformation',
-      main: 'https://images.unsplash.com/photo-1752769041878-f24e37fd6aea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBiYXRocm9vbSUyMGludGVyaW9yJTIwc3BhJTIwZGVzaWdufGVufDF8fHx8MTc3Mjc1MTczM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      side1: imgRectangle14,
-      side2: 'https://images.unsplash.com/photo-1672927936377-97d1be3976cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtb2Rlcm4lMjBsaXZpbmclMjByb29tJTIwaW50ZXJpb3IlMjBkZXNpZ258ZW58MXx8fHwxNzcyNzQzNDMyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      name: 'Jalan',
+      desc: 'Luxury space renovation',
+      main: cloudImg(projects.jalan.hero, { w: 720, h: 480 }),
+      side1: cloudImg(projects.jalan.images[0], { w: 360, h: 480 }),
+      side2: cloudImg(projects.jalan.images[1], { w: 360, h: 260 }),
     },
   ];
 
@@ -200,7 +194,7 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="md:w-1/4 h-[250px] md:h-[300px]"
           >
-            <img src={imgRectangle66} alt="Interior design" className="w-full h-full object-cover" />
+            <img src={cloudImg(projects.tengah.images[0], { w: 300, h: 400 })} alt="Interior design" loading="lazy" className="w-full h-full object-cover" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -209,7 +203,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="md:w-3/4 h-[300px] md:h-[500px] lg:h-[620px]"
           >
-            <img src={imgRectangle65} alt="Interior design" className="w-full h-full object-cover" />
+            <img src={cloudImg(projects.simsdr.hero, { w: 800, h: 530 })} alt="Interior design" loading="lazy" className="w-full h-full object-cover" />
           </motion.div>
         </div>
       </section>
