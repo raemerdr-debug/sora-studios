@@ -58,6 +58,45 @@ export interface Database {
         };
         Relationships: [];
       };
+      consultations: {
+        Row: {
+          id: number;
+          name: string;
+          email: string;
+          phone: string | null;
+          property_type: string;
+          budget: string | null;
+          room_count: string | null;
+          preferred_date: string | null;
+          message: string | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: number;
+          name: string;
+          email: string;
+          phone?: string | null;
+          property_type: string;
+          budget?: string | null;
+          room_count?: string | null;
+          preferred_date?: string | null;
+          message?: string | null;
+          created_at?: string;
+        };
+        Update: {
+          id?: number;
+          name?: string;
+          email?: string;
+          phone?: string | null;
+          property_type?: string;
+          budget?: string | null;
+          room_count?: string | null;
+          preferred_date?: string | null;
+          message?: string | null;
+          created_at?: string;
+        };
+        Relationships: [];
+      };
       team_members: {
         Row: {
           id: number;

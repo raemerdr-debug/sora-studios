@@ -114,7 +114,7 @@ export default function TeamPage() {
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3 }}
-                className="h-[300px] md:h-[380px] overflow-hidden bg-[#d9d9d9]"
+                className="aspect-[4/5] overflow-hidden bg-[#d9d9d9]"
               >
                 <ImageWithFallback
                   src={member.img}
