@@ -81,11 +81,10 @@ export default function ProjectsPage() {
         backgroundImage={heroImg}
         title={
           <div className="text-[#fff1e5] text-5xl sm:text-7xl md:text-9xl lg:text-[160px] leading-[1] capitalize">
-            <span className="font-['DM_Sans',sans-serif] tracking-[-1px] md:tracking-[-3px]">Our </span>
+            <span className="font-['DM_Sans',sans-serif] tracking-[-0.5px] md:tracking-[-1.5px]">Our </span>
             <span className="font-['Instrument_Serif',serif] italic">Projects</span>
           </div>
         }
-        subtitle="We transform ideas into compelling designs that captivate and convert"
       />
 
       {/* Projects Grid - Masonry style */}

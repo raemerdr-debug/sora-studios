@@ -28,11 +28,10 @@ export default function AboutPage() {
         backgroundImage={imgRectangle65}
         title={
           <div className="text-[#fff1e5] text-5xl sm:text-7xl md:text-9xl lg:text-[160px] leading-[1] capitalize">
-            <span className="font-['DM_Sans',sans-serif] tracking-[-1px] md:tracking-[-3px]">About </span>
+            <span className="font-['DM_Sans',sans-serif] tracking-[-0.5px] md:tracking-[-1.5px]">About </span>
             <span className="font-['Instrument_Serif',serif] italic">Us</span>
           </div>
         }
-        subtitle="We transform ideas into compelling designs that captivate and convert"
       />
 
       {/* Brown section - Creative Concept */}
@@ -52,10 +51,10 @@ export default function AboutPage() {
               </p>
             </div>
             <p className="font-['Raleway',sans-serif] text-white text-sm md:text-lg leading-[1.6]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id at mauris dis tincidunt ipsum faucibus ipsum. At laoreet vivamus ultrices dolor vel nisl. Leo, ultrices enim vel feugiat lectus nisi, phasellus egestas.
+              We don't follow trends for the sake of it. Every concept we create starts with how you live — your routines, your preferences, your space. The result is a design that feels fresh and intentional, not borrowed from a catalog.
             </p>
             <p className="font-['Raleway',sans-serif] text-white text-sm md:text-lg leading-[1.6]">
-              Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero. At elit eu lacus, quam neque arcu euismod.
+              From BTOs, HDBs, to condos to landed homes, we've spent the last decade refining our approach — blending clean aesthetics with smart, functional layouts that hold up long after handover.
             </p>
 
             {/* Stats */}
@@ -79,7 +78,7 @@ export default function AboutPage() {
             </div>
 
             <p className="font-['Manrope',sans-serif] text-white text-xl md:text-3xl mt-4">
-              Lorem ipsum dolor sit amet
+              Spaces designed to be lived in, not just looked at.
             </p>
           </motion.div>
 
@@ -127,15 +126,15 @@ export default function AboutPage() {
               <span className="font-['Instrument_Serif',serif]">Home More Aesthetic</span>
             </p>
             <p className="font-['Raleway',sans-serif] text-[#6f7470] text-sm md:text-lg leading-[1.6] mt-6">
-              Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero. At elit eu lacus, quam neque arcu euismod.
+              Sora Studios was founded on a simple idea: your home should look good and work even better. We design spaces that balance beauty with everyday function — because a home that only looks great in photos isn't doing its job.
             </p>
           </motion.div>
           <motion.div {...fadeInUp} transition={{ duration: 0.6, delay: 0.2 }} className="lg:w-1/2">
             <p className="font-['Raleway',sans-serif] text-[#6f7470] text-sm md:text-lg leading-[1.6]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id at mauris dis tincidunt ipsum faucibus ipsum. At laoreet vivamus ultrices dolor vel nisl. Leo, ultrices enim vel feugiat lectus nisi, phasellus egestas. Nullam tellus aliquam, sed nulla sed purus vitasse. urna est, viverra sed etiam quisque.
+              Over the years, we've worked across every property type in Singapore — from compact BTOs and executive flats to condos and landed homes. Each project has taught us something new, and that experience shapes how we approach every brief. We don't do cookie-cutter. Every home gets a concept built around the people living in it.
             </p>
             <p className="font-['Raleway',sans-serif] text-[#6f7470] text-sm md:text-lg leading-[1.6] mt-6">
-              Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero. At elit eu lacus, quam neque arcu euismod. At id in auctor posuere eget. Convallis varius laoreet.
+              Our team handles everything from initial space planning to material selection, carpentry, and project coordination. We keep the process transparent and structured so you're never left wondering what's happening next. One team, one point of contact, from start to finish.
             </p>
           </motion.div>
         </div>
@@ -170,15 +169,15 @@ export default function AboutPage() {
             <span className="font-['Instrument_Serif',serif]">Choose Us</span>
           </p>
           <p className="font-['Raleway',sans-serif] text-[#6f7470] text-sm md:text-lg leading-[1.6] mt-6 max-w-[744px] mx-auto">
-            Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero. At elit eu lacus, quam neque arcu euismod.
+            We've helped homeowners across Singapore turn empty spaces into homes they love. Here's what sets Sora Studios apart.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
           {[
-            { title: 'Fast Building', desc: 'Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero.', icon: Zap },
-            { title: 'Smartly Execute', desc: 'Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero.', icon: Brain },
-            { title: 'Carefully Planned', desc: 'Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero.', icon: ClipboardCheck },
+            { title: 'Fast Building', desc: 'We respect your timeline. Our streamlined process and reliable contractor network mean your renovation stays on track — so you move in when planned, not months later.', icon: Zap },
+            { title: 'Smartly Execute', desc: 'Every dollar counts. We optimize layouts, materials, and workflows to give you the best outcome within your budget — no unnecessary extras, no hidden costs.', icon: Brain },
+            { title: 'Carefully Planned', desc: 'Nothing starts without a clear plan. From detailed drawings to material specs and timelines, everything is mapped out and approved by you before work begins.', icon: ClipboardCheck },
           ].map((card, i) => (
             <motion.div
               key={i}

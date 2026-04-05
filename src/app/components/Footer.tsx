@@ -21,7 +21,7 @@ export function Footer() {
               to="/contact"
               className="bg-[#fff1e5] inline-flex items-center justify-center h-12 px-6 rounded-full font-['Satoshi',sans-serif] text-[#111312] text-xs tracking-[1.8px] uppercase no-underline hover:bg-white transition-colors w-fit"
             >
-              Set A Meet
+              Book a Consultation
             </Link>
           </div>
 
@@ -51,15 +51,12 @@ export function Footer() {
                 className="absolute h-[346.67%] left-[-13.9%] top-[-128.33%] w-[102.97%] max-w-none object-cover"
               />
             </div>
-            <p className="font-['Satoshi',sans-serif] text-[13px] text-white opacity-80 leading-[1.7] tracking-[-0.26px] max-w-[223px]">
-              We encourage clients to actively participate in discussions, share their ideas, preferences, and feedback.
-            </p>
           </div>
 
           <div className="font-['Satoshi',sans-serif] text-[#e8e6de] text-lg md:text-xl tracking-[-0.4px] leading-[1.4]">
-            <p className="mb-0">70 University Ave</p>
-            <p className="mb-6">Palo Alto, CA 94301</p>
-            <p>21340549</p>
+            <p className="mb-0">Vertex, 33 Ubi Ave 3 #01-53</p>
+            <p className="mb-6">Singapore 408868</p>
+            <p>Daryl.sorastudios@gmail.com</p>
           </div>
         </div>
       </div>

@@ -17,7 +17,7 @@ export function CTASection() {
           className="flex-shrink-0"
         >
           <p className="font-['Instrument_Serif',serif] text-[#974200] text-5xl md:text-7xl lg:text-[128px] leading-[1]">
-            <span className="font-['DM_Sans',sans-serif] tracking-[-0.5px] md:tracking-[-1.28px]">Ready to </span>
+            <span className="font-['DM_Sans',sans-serif] tracking-[-0.5px] md:tracking-[-0.6px]">Ready to </span>
             <span className="italic">Transform</span>
           </p>
           <p className="font-['Instrument_Serif',serif] italic text-[#974200] text-5xl md:text-7xl lg:text-[128px] leading-[1]">
@@ -32,7 +32,7 @@ export function CTASection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-['Poppins',sans-serif] text-[#361e0f] opacity-50 text-base md:text-xl lg:text-2xl max-w-[654px] self-start lg:self-center"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper diam velit, a aliquam lorem congue sed. Donec ultricies purus dolor, sed semper quam ornare vitae.
+          Have a project in mind — or just starting to think about it? Let's chat. Book a free consultation and we'll help you figure out the right design, budget, and timeline for your space.
         </motion.p>
       </div>
 
@@ -54,7 +54,7 @@ export function CTASection() {
           to="/contact"
           className="absolute bottom-6 right-6 md:bottom-10 md:right-10 bg-[#fff1e5] px-8 md:px-14 py-4 md:py-6 rounded-full font-['DM_Sans',sans-serif] text-[#0f0e0c] text-base md:text-2xl no-underline hover:bg-white transition-colors"
         >
-          Schedule Your Consultation
+          Book a Consultation
         </Link>
       </motion.div>
     </section>

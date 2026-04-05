@@ -87,7 +87,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-['DM_Sans',sans-serif] text-[#fff1e5] text-4xl sm:text-6xl md:text-8xl lg:text-[120px] leading-[1] tracking-[-1px] md:tracking-[-3px] capitalize whitespace-nowrap"
+            className="font-['DM_Sans',sans-serif] text-[#fff1e5] text-4xl sm:text-6xl md:text-8xl lg:text-[120px] leading-[1] tracking-[-0.5px] md:tracking-[-1.5px] capitalize whitespace-nowrap"
           >
             Transforming Spaces into
           </motion.p>
@@ -102,11 +102,11 @@ export default function HomePage() {
 
           <motion.p
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
+            animate={{ opacity: 0.85 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="font-['Poppins',sans-serif] text-[#fff1e5] text-sm md:text-2xl mt-6 md:mt-10"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Thoughtful design for spaces that feel as good as they look.
           </motion.p>
 
           {/* CTA buttons */}
@@ -139,9 +139,9 @@ export default function HomePage() {
         {/* Stats - below the fold */}
         <div className="relative z-10 px-6 md:px-16 pb-12 md:pb-20 pt-8 md:pt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-16">
           {[
-            { value: '3k+ Project', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-            { value: '99% Succes Project', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-            { value: 'Professional Team', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+            { value: 'Spaces Brought to Life', desc: 'Every project starts with a conversation and ends with a home that truly fits.' },
+            { value: '99% Succes Project', desc: 'Nearly every project completed on time, on budget, and beyond expectations.' },
+            { value: 'Professional Team', desc: 'Designers, architects, and craftsmen working together to bring your vision to life.' },
           ].map((stat, i) => (
             <motion.div
               key={i}
@@ -150,7 +150,7 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
             >
-              <p className="font-['DM_Sans',sans-serif] text-[#fff1e5] text-2xl md:text-5xl tracking-[-0.5px] md:tracking-[-2.88px] capitalize">
+              <p className="font-['DM_Sans',sans-serif] text-[#fff1e5] text-2xl md:text-5xl tracking-[-0.5px] md:tracking-[-1.5px] capitalize">
                 {stat.value}
               </p>
               <p className="font-['DM_Sans',sans-serif] text-[#fff1e5] opacity-50 text-sm md:text-2xl mt-3 capitalize">
@@ -167,7 +167,7 @@ export default function HomePage() {
           {/* Left title */}
           <motion.div {...fadeInUp} className="lg:w-1/3">
             <p className="text-[#974200] text-4xl md:text-6xl lg:text-8xl leading-[1] capitalize">
-              <span className="font-['DM_Sans',sans-serif] tracking-[-0.5px] md:tracking-[-1.12px]">Designing with </span>
+              <span className="font-['DM_Sans',sans-serif] tracking-[-0.5px] md:tracking-[-0.5px]">Designing with </span>
               <span className="font-['Instrument_Serif',serif] italic">Purpose</span>
               <span className="font-['Instrument_Serif',serif]"> and </span>
               <span className="font-['Instrument_Serif',serif] italic">Passion</span>
@@ -176,11 +176,11 @@ export default function HomePage() {
 
           {/* Right content */}
           <div className="lg:w-2/3 flex flex-col gap-6">
-            <motion.p {...fadeInUp} transition={{ duration: 0.6, delay: 0.1 }} className="font-['DM_Sans',sans-serif] text-[#361e0f] text-2xl md:text-5xl tracking-[-0.5px] md:tracking-[-2.88px]">
+            <motion.p {...fadeInUp} transition={{ duration: 0.6, delay: 0.1 }} className="font-['DM_Sans',sans-serif] text-[#361e0f] text-2xl md:text-5xl tracking-[-0.5px] md:tracking-[-1.5px]">
               Our Philosophy "Beyond Aesthetics"
             </motion.p>
             <motion.p {...fadeInUp} transition={{ duration: 0.6, delay: 0.2 }} className="font-['DM_Sans',sans-serif] text-[#361e0f] opacity-50 text-sm md:text-2xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              At Sora Studios, we believe a beautiful home should also be one you can truly live in. Every layout, material, and detail is chosen not just for how it looks, but for how it fits your daily life — from morning routines to quiet evenings in.
             </motion.p>
           </div>
         </div>
@@ -318,7 +318,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:w-1/2 font-['Poppins',sans-serif] text-[#361e0f] opacity-50 text-sm md:text-2xl capitalize"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper diam velit, a aliquam lorem congue sed. Donec ultricies purus dolor, sed semper quam ornare vitae.
+            Every project follows a clear, structured process — so you always know what's happening and what comes next. No surprises, no guesswork. Just a smooth journey from first idea to finished home.
           </motion.p>
         </div>
 
@@ -327,9 +327,9 @@ export default function HomePage() {
           <div className="absolute left-0 right-0 top-0 h-px bg-[#361e0f] opacity-50" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 pt-8 md:pt-12">
             {[
-              { title: 'Consultation', desc: 'Lorem ipsum dolor sit amet,' },
-              { title: 'Conceptualization', desc: 'Lorem ipsum dolor sit amet,' },
-              { title: 'Development', desc: 'Lorem ipsum dolor sit amet,' },
+              { title: 'Consultation', desc: 'We start by listening. Share your lifestyle, budget, and vision — we\'ll assess your space and map out what\'s possible.' },
+              { title: 'Conceptualization', desc: 'Your ideas take shape. We develop layouts, material palettes, and 3D visuals so you can see and refine the design before any work begins.' },
+              { title: 'Development', desc: 'Once everything\'s approved, we bring it to life — managing every detail from carpentry to finishing, keeping you updated throughout.' },
             ].map((step, i) => (
               <motion.div
                 key={i}
@@ -346,7 +346,7 @@ export default function HomePage() {
                     <circle cx="8.5" cy="8.5" r="8" stroke="#FFF1E5" strokeOpacity="0.5" />
                   </svg>
                 </div>
-                <p className="font-['DM_Sans',sans-serif] text-[#974200] text-2xl md:text-5xl tracking-[-0.5px] md:tracking-[-2.88px] capitalize">
+                <p className="font-['DM_Sans',sans-serif] text-[#974200] text-2xl md:text-5xl tracking-[-0.5px] md:tracking-[-1.5px] capitalize">
                   {step.title}
                 </p>
                 <p className="font-['Poppins',sans-serif] text-[#361e0f] opacity-50 text-sm md:text-2xl mt-3 capitalize">
@@ -365,16 +365,25 @@ export default function HomePage() {
             <span className="font-['DM_Sans',sans-serif] tracking-[-0.3px] md:tracking-[-0.64px]">What Our </span>
             <span className="font-['Instrument_Serif',serif] italic">Clients Say</span>
           </p>
+          <a href="https://www.google.com/maps/place/Sora+Studios/@1.3329084,103.8911002,17z/data=!3m1!4b1!4m6!3m5!1s0x31da17337e8277b9:0x38bf33709533ccdb!8m2!3d1.3329084!4d103.8936751!16s%2Fg%2F11ysxddrw0?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 mt-6 hover:opacity-70 transition-opacity">
+            <svg viewBox="0 0 24 24" className="w-5 h-5 md:w-6 md:h-6">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            <span className="font-['Poppins',sans-serif] text-[#361e0f] opacity-40 text-sm md:text-base">Google Reviews</span>
+          </a>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {[
-            { name: 'Sarah M.', active: false, img: 'https://images.unsplash.com/photo-1758600432914-2b5f4483c7b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0JTIwaGVhZHNob3QlMjBwcm9mZXNzaW9uYWwlMjB3YXJtfGVufDF8fHx8MTc3Mjc1MzA3NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', review: 'Sora Studios transformed our living space beyond our wildest dreams. Their attention to detail is unmatched.' },
-            { name: 'James L.', active: true, img: 'https://images.unsplash.com/photo-1723537742563-15c3d351dbf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjBwb3J0cmFpdCUyMGhlYWRzaG90JTIwYnVzaW5lc3MlMjBjYXN1YWx8ZW58MXx8fHwxNzcyNzUzMDc1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', review: 'Working with the Sora team was an incredible experience. They truly listened and delivered a space that feels like home.' },
-            { name: 'Emily R.', active: false, img: 'https://images.unsplash.com/photo-1772249541659-a034b3360f19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMHdvbWFuJTIwc21pbGluZyUyMHBvcnRyYWl0JTIwbmF0dXJhbHxlbnwxfHx8fDE3NzI2NzM5MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', review: 'From concept to completion, Sora made every step seamless. Our office redesign boosted team morale instantly.' },
-            { name: 'David K.', active: false, img: 'https://images.unsplash.com/photo-1764084051438-369ad6a09334?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaWRkbGUlMjBhZ2VkJTIwbWFuJTIwcG9ydHJhaXQlMjBjb25maWRlbnR8ZW58MXx8fHwxNzcyNzUzMDc3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', review: 'The team at Sora understood our vision perfectly. Every corner of our home now tells a beautiful story.' },
-            { name: 'Olivia P.', active: false, img: 'https://images.unsplash.com/photo-1770235622504-3851a96ac6ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMHBvcnRyYWl0JTIwc3R1ZGlvJTIwZWxlZ2FudHxlbnwxfHx8fDE3NzI3NTMwNzd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', review: 'Exceptional craftsmanship and creative vision. Sora turned our outdated kitchen into a culinary masterpiece.' },
-            { name: 'Marcus T.', active: false, img: 'https://images.unsplash.com/photo-1762708550141-2688121b9ebd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMG1hbiUyMHBvcnRyYWl0JTIwY3JlYXRpdmUlMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzcyNzUzMDc3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', review: 'I was blown away by the transformation. Sora Studios creates spaces that are both functional and breathtaking.' },
+            { name: 'Nurhasanah S.', review: 'We had an amazing experience with Sora Studios. The space feels calm, functional, and well thought out. The layout, colour palette, and material choices were simple yet elegant, with strong attention to detail.' },
+            { name: 'Syarafana B.', review: 'He took the time to understand what I envisioned and brought it to life in a way that feels both beautiful and personal. His patience, creativity and thoughtful approach made the entire process stress-free and enjoyable.' },
+            { name: 'Jerome L.', review: 'Friendly, exceptionally helpful, and dedicated to finding solutions for every challenge we faced. Always responsive, kept the project on schedule, and offered reasonable pricing. We are very satisfied with the outcome.' },
+            { name: 'RJ J.', review: 'We had a really fast and smooth renovation journey. The balance between Japanese minimalism and Scandinavian warmth was done beautifully — everything felt cohesive and thoughtfully designed.' },
+            { name: 'Kelly N.', review: 'Absolutely blown away by the results! She has an incredible eye for detail and space planning. She listened carefully to our needs, gave honest advice, and transformed our home into something both beautiful and practical.' },
+            { name: 'Arissa H.', review: 'As first-time homeowners, we were nervous about the process, but she managed everything seamlessly. She has a rare talent for balancing aesthetic wants with functional needs. We couldn\'t have asked for a better experience!' },
           ].map((client, i) => (
             <motion.div
               key={i}
@@ -382,19 +391,21 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="flex gap-4 items-start"
+              className="flex flex-col gap-3"
             >
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#d9d9d9] shrink-0 overflow-hidden">
-                <ImageWithFallback src={client.img} alt={client.name} className="w-full h-full object-cover" />
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, s) => (
+                  <svg key={s} viewBox="0 0 24 24" className="w-4 h-4 md:w-5 md:h-5 text-[#FBBC05]" fill="currentColor">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
               </div>
-              <div>
-                <p className={`font-['Poppins',sans-serif] text-[#974200] text-xl md:text-[32px] capitalize ${!client.active ? 'opacity-50' : ''}`}>
-                  {client.name}
-                </p>
-                <p className={`font-['Poppins',sans-serif] text-[#361e0f] text-sm md:text-2xl capitalize mt-2 ${!client.active ? 'opacity-50' : ''}`}>
-                  {client.review}
-                </p>
-              </div>
+              <p className="font-['Poppins',sans-serif] text-[#361e0f] text-sm md:text-lg leading-[1.6] opacity-60">
+                "{client.review}"
+              </p>
+              <p className="font-['DM_Sans',sans-serif] text-[#974200] text-base md:text-xl">
+                {client.name}
+              </p>
             </motion.div>
           ))}
         </div>

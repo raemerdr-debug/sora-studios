@@ -99,7 +99,7 @@ export default function ProjectDetailPage() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-[#fff1e5] text-4xl sm:text-6xl md:text-8xl leading-[1]"
           >
-            <span className="font-['DM_Sans',sans-serif] tracking-[-1px] md:tracking-[-2px]">{project.name}</span>
+            <span className="font-['DM_Sans',sans-serif] tracking-[-0.5px] md:tracking-[-0.5px]">{project.name}</span>
           </motion.h1>
         </div>
       </div>

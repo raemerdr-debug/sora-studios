@@ -19,7 +19,7 @@ const fadeInUp = {
 };
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -29,14 +29,14 @@ export default function ContactPage() {
     setStatus('sending');
     const { error } = await supabase
       .from('contact_messages')
-      .insert({ name: formData.name, email: formData.email, message: formData.message });
+      .insert({ name: formData.name, email: formData.email, phone: formData.phone, message: formData.message });
 
     if (error) {
       setStatus('error');
       console.error('Supabase error:', error);
     } else {
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', message: '' });
     }
 
     setTimeout(() => setStatus('idle'), 4000);
@@ -49,7 +49,7 @@ export default function ContactPage() {
         backgroundImage={heroImg}
         title={
           <div className="text-[#fff1e5] text-5xl sm:text-7xl md:text-9xl lg:text-[160px] leading-[1] capitalize">
-            <span className="font-['DM_Sans',sans-serif] tracking-[-1px] md:tracking-[-3px]">Contact </span>
+            <span className="font-['DM_Sans',sans-serif] tracking-[-0.5px] md:tracking-[-1.5px]">Contact </span>
             <span className="font-['Instrument_Serif',serif] italic">Us</span>
           </div>
         }
@@ -75,18 +75,8 @@ export default function ContactPage() {
             className="lg:w-1/2"
           >
             <p className="font-['Raleway',sans-serif] text-[#6f7470] text-sm md:text-base leading-[1.6] mb-8">
-              Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero. At elit eu lacus, quam neque arcu euismod. At id in auctor posuere eget. Convallis varius laoreet.
+              Whether you're planning a full renovation or just exploring ideas, we're here to help. Drop us a message and we'll get back to you to discuss your space, your vision, and how we can bring it to life.
             </p>
-
-            <p className="font-['Satoshi',sans-serif] text-[#361e0f] text-xs tracking-[1.8px] uppercase opacity-60 mb-4">
-              Info Contact
-            </p>
-
-            <div className="flex flex-col gap-3 mb-10">
-              <p className="font-['DM_Sans',sans-serif] text-[#131714] text-lg md:text-xl">Sample</p>
-              <p className="font-['DM_Sans',sans-serif] text-[#131714] text-lg md:text-xl">customer@electron.com</p>
-              <p className="font-['DM_Sans',sans-serif] text-[#131714] text-lg md:text-xl">(+021) 345 678 910</p>
-            </div>
 
             <p className="text-[#131714] text-2xl md:text-4xl mb-6">
               <span className="font-['Manrope',sans-serif]">Message </span>
@@ -108,6 +98,13 @@ export default function ContactPage() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="w-full px-5 py-4 border border-[#d9d9d9] rounded-lg bg-white font-['Satoshi',sans-serif] text-[#131714] placeholder:text-[#999] focus:outline-none focus:border-[#974200] transition-colors"
+              />
+              <input
+                type="tel"
+                placeholder="Phone number"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full px-5 py-4 border border-[#d9d9d9] rounded-lg bg-white font-['Satoshi',sans-serif] text-[#131714] placeholder:text-[#999] focus:outline-none focus:border-[#974200] transition-colors"
               />
               <textarea

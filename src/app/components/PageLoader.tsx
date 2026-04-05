@@ -75,6 +75,7 @@ export function PageLoader({ children, locationKey }: PageLoaderProps) {
               src={imgLogo}
               alt="Sora Studios"
               className="w-[140px] md:w-[180px] h-auto"
+              style={{ filter: 'brightness(0) saturate(100%) invert(27%) sepia(89%) saturate(1034%) hue-rotate(10deg) brightness(93%) contrast(95%)' }}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}

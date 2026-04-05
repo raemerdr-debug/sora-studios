@@ -27,12 +27,12 @@ export function FAQSection() {
       <div className="relative z-10 flex flex-col lg:flex-row gap-10 lg:gap-16 items-end">
         {/* Still have a question */}
         <div className="bg-[#26221f] p-8 md:p-12 flex flex-col gap-8 shrink-0 w-full lg:w-auto">
-          <p className="font-['DM_Sans',sans-serif] text-[#e8e6de] text-3xl md:text-[52px] leading-[1.1] tracking-[-0.5px] md:tracking-[-1.04px] max-w-[273px]">
+          <p className="font-['DM_Sans',sans-serif] text-[#e8e6de] text-3xl md:text-[52px] leading-[1.1] tracking-[-0.5px] md:tracking-[-0.5px] max-w-[273px]">
             Still Have A Question?
           </p>
-          <button className="bg-[#fff1e5] h-12 px-6 rounded-full font-['Satoshi',sans-serif] text-[#111312] text-xs tracking-[1.8px] uppercase opacity-90 hover:opacity-100 transition-opacity w-fit">
-            Set A Meet
-          </button>
+          <a href="/contact" className="bg-[#fff1e5] h-12 px-6 rounded-full font-['Satoshi',sans-serif] text-[#111312] text-xs tracking-[1.8px] uppercase opacity-90 hover:opacity-100 transition-opacity w-fit inline-flex items-center no-underline">
+            Book a Consultation
+          </a>
         </div>
 
         {/* FAQ list */}

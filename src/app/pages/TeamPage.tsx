@@ -1,3 +1,4 @@
+import { useRef, useState, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { HeroSection } from '../components/HeroSection';
 import { FAQSection } from '../components/FAQSection';
@@ -7,17 +8,40 @@ const imgRectangle64 = cloudImg(projects.woodlands436.hero, { w: 1920, h: 1080 }
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
 const teamMembers = [
-  { name: 'Sarah Mitchell', position: 'Creative Director', img: 'https://images.unsplash.com/photo-1697095098675-1d02496ef86a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGFyY2hpdGVjdCUyMHBvcnRyYWl0fGVufDF8fHx8MTc3MjY1NTU4Mnww&ixlib=rb-4.1.0&q=80&w=1080' },
-  { name: 'James Carter', position: 'Lead Designer', img: 'https://images.unsplash.com/photo-1761522002071-67755dc6c820?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYW4lMjBkZXNpZ25lciUyMHBvcnRyYWl0fGVufDF8fHx8MTc3MjcyODUzN3ww&ixlib=rb-4.1.0&q=80&w=1080' },
-  { name: 'Elena Rodriguez', position: 'Senior Architect', img: 'https://images.unsplash.com/photo-1767605769884-ae3e4653186e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGludGVyaW9yJTIwZGVzaWduZXIlMjBjcmVhdGl2ZSUyMHBvcnRyYWl0fGVufDF8fHx8MTc3MjcyODUzOHww&ixlib=rb-4.1.0&q=80&w=1080' },
-  { name: 'Michael Chen', position: 'Project Manager', img: 'https://images.unsplash.com/photo-1769636929231-3cd7f853d038?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYW4lMjBzdWl0JTIwcG9ydHJhaXQlMjBoZWFkc2hvdHxlbnwxfHx8fDE3NzI3MTE0MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080' },
-  { name: 'Olivia Brown', position: 'Interior Stylist', img: 'https://images.unsplash.com/photo-1769636930016-5d9f0ca653aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHByb2Zlc3Npb25hbCUyMHdvbWFuJTIwaGVhZHNob3QlMjBzdHVkaW98ZW58MXx8fHwxNzcyNzI4NTQ0fDA&ixlib=rb-4.1.0&q=80&w=1080' },
-  { name: 'David Park', position: 'Design Consultant', img: 'https://images.unsplash.com/photo-1607167494912-a6153535f03e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMHByb2Zlc3Npb25hbCUyMGRlc2lnbmVyJTIwaGVhZHNob3QlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NzI3Mjg1NDR8MA&ixlib=rb-4.1.0&q=80&w=1080' },
-  { name: 'Lisa Wang', position: 'Space Planner', img: 'https://images.unsplash.com/photo-1697095098675-1d02496ef86a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGFyY2hpdGVjdCUyMHBvcnRyYWl0fGVufDF8fHx8MTc3MjY1NTU4Mnww&ixlib=rb-4.1.0&q=80&w=1080' },
-  { name: 'Ryan Adams', position: 'Furniture Designer', img: 'https://images.unsplash.com/photo-1761522002071-67755dc6c820?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYW4lMjBkZXNpZ25lciUyMHBvcnRyYWl0fGVufDF8fHx8MTc3MjcyODUzN3ww&ixlib=rb-4.1.0&q=80&w=1080' },
+  { name: 'Kason Koh', position: 'Director', img: 'https://static.wixstatic.com/media/1b4359_c366f63040fb4f8cae45ce4aa1bd5192~mv2.png/v1/fill/w_800,h_938,fp_0.51_0.16,q_90,enc_avif,quality_auto/F1.png' },
+  { name: 'Anson Poon', position: 'Director', img: 'https://static.wixstatic.com/media/1b4359_7eed2322db264c549afa0d5e4bf99ec8~mv2.png/v1/fill/w_800,h_938,fp_0.49_0.19,q_90,enc_avif,quality_auto/F2.png' },
+  { name: 'Daryl Lee', position: 'Assistant Director', img: 'https://static.wixstatic.com/media/1b4359_6b3410232b3646598621248cec875adf~mv2.png/v1/fill/w_800,h_938,fp_0.50_0.20,q_90,enc_avif,quality_auto/F3.png' },
 ];
 
 export default function TeamPage() {
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+
+  const handlePlay = useCallback((index: number) => {
+    // Pause all other videos
+    videoRefs.current.forEach((video, i) => {
+      if (video && i !== index) {
+        video.pause();
+      }
+    });
+
+    const video = videoRefs.current[index];
+    if (!video) return;
+
+    if (video.paused) {
+      // If this is the first play (thumbnail position) or video ended, start from beginning
+      if (!video.dataset.hasPlayed || video.ended) {
+        video.currentTime = 0;
+        video.dataset.hasPlayed = 'true';
+      }
+      video.play();
+      setPlayingIndex(index);
+    } else {
+      video.pause();
+      setPlayingIndex(null);
+    }
+  }, []);
+
   return (
     <div className="bg-[#fff1e5]">
       {/* Hero */}
@@ -25,11 +49,10 @@ export default function TeamPage() {
         backgroundImage={imgRectangle64}
         title={
           <div className="text-[#fff1e5] text-5xl sm:text-7xl md:text-9xl lg:text-[160px] leading-[1] capitalize">
-            <span className="font-['DM_Sans',sans-serif] tracking-[-1px] md:tracking-[-3px]">Our </span>
+            <span className="font-['DM_Sans',sans-serif] tracking-[-0.5px] md:tracking-[-1.5px]">Our </span>
             <span className="font-['Instrument_Serif',serif] italic">Team</span>
           </div>
         }
-        subtitle="We transform ideas into compelling designs that captivate and convert"
       />
 
       {/* Description */}
@@ -43,11 +66,11 @@ export default function TeamPage() {
             className="lg:w-1/2"
           >
             <p className="text-[#131714] text-3xl md:text-5xl lg:text-7xl leading-[1.2]">
-              <span className="font-['Manrope',sans-serif]">Lorem ipsum</span><br />
-              <span className="font-['Instrument_Serif',serif]">Lorem ipsum dolor sit amet</span>
+              <span className="font-['Manrope',sans-serif]">The People Behind</span><br />
+              <span className="font-['Instrument_Serif',serif]">Every Project</span>
             </p>
             <p className="font-['Raleway',sans-serif] text-[#6f7470] text-sm md:text-lg leading-[1.6] mt-6">
-              Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero. At elit eu lacus, quam neque arcu euismod.
+              We're a close-knit team of designers, project managers, who genuinely care about getting the details right.
             </p>
           </motion.div>
           <motion.div
@@ -58,10 +81,10 @@ export default function TeamPage() {
             className="lg:w-1/2"
           >
             <p className="font-['Raleway',sans-serif] text-[#6f7470] text-sm md:text-lg leading-[1.6]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id at mauris dis tincidunt ipsum faucibus ipsum. At laoreet vivamus ultrices dolor vel nisl. Leo, ultrices enim vel feugiat lectus nisi, phasellus egestas.
+              At Sora Studios, every project is handled by people — not processes. Our designers bring years of hands-on experience across HDBs, condos, and landed properties, and they work directly with you from concept through to handover. No hand-offs between departments, no miscommunication.
             </p>
             <p className="font-['Raleway',sans-serif] text-[#6f7470] text-sm md:text-lg leading-[1.6] mt-6">
-              Ac volutpat et nulla ultricies convallis convallis sed. Sit nec risus sit nisl, quis in turpis gravida libero. At elit eu lacus, quam neque arcu euismod. At id in auctor posuere eget. Convallis varius laoreet.
+              Behind every design is a team that coordinates everything — materials, timelines, contractors, and quality checks. We keep things running smoothly so you don't have to chase anyone down or wonder what's happening next.
             </p>
           </motion.div>
         </div>
@@ -69,7 +92,16 @@ export default function TeamPage() {
 
       {/* Team Grid */}
       <section className="bg-[#fff1e5] px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-['DM_Sans',sans-serif] text-[#974200] text-2xl md:text-4xl mb-8 md:mb-12"
+        >
+          Directors
+        </motion.p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {teamMembers.map((member, i) => (
             <motion.div
               key={i}
@@ -94,14 +126,79 @@ export default function TeamPage() {
                 <p className="font-['Satoshi',sans-serif] text-[#974200] text-xl md:text-2xl lg:text-[28px] tracking-[-0.7px]">
                   {member.name}
                 </p>
-                <div className="flex items-center gap-2 mt-4">
-                  <p className="font-['Satoshi',sans-serif] text-[#361e0f] opacity-60 text-sm md:text-base tracking-[-0.5px]">
-                    {member.position}
-                  </p>
-                  <svg width="16" height="16" viewBox="0 0 16.4714 16.4714" fill="none">
-                    <path d="M16.4714 0.666667C16.4714 0.298477 16.1729 0 15.8047 0H9.80474C9.43655 0 9.13807 0.298477 9.13807 0.666667C9.13807 1.03486 9.43655 1.33333 9.80474 1.33333H15.1381V6.66667C15.1381 7.03486 15.4365 7.33333 15.8047 7.33333C16.1729 7.33333 16.4714 7.03486 16.4714 6.66667V0.666667ZM0.471405 16L0.942809 16.4714L16.2761 1.13807L15.8047 0.666667L15.3333 0.195262L0 15.5286L0.471405 16Z" fill="#361E0F" />
-                  </svg>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Managers */}
+      <section className="bg-[#fff1e5] px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-['DM_Sans',sans-serif] text-[#974200] text-2xl md:text-4xl mb-8 md:mb-12"
+        >
+          Managers
+        </motion.p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {[
+            {
+              name: 'At Sora Studios, every designer is trained, qualified, and rigorously assessed before handling your project.',
+              video: 'https://kdlzxnkecdgqidxhtclm.supabase.co/storage/v1/object/public/videos/manager-video-1.mp4#t=5.5',
+            },
+            {
+              name: 'This is Samantha, one of the people making sure your renovation stays on track. From detailed drawings to material specs.',
+              video: 'https://kdlzxnkecdgqidxhtclm.supabase.co/storage/v1/object/public/videos/manager-video-2.mp4#t=3',
+            },
+            {
+              name: 'Trust is everything when it comes to your home. At Sora Studio, Jackson guides every project from start to finish.',
+              video: 'https://kdlzxnkecdgqidxhtclm.supabase.co/storage/v1/object/public/videos/manager-video-3.mp4#t=4',
+            },
+          ].map((manager, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="flex flex-col"
+            >
+              <div
+                className="aspect-[9/16] overflow-hidden bg-[#0f0e0c] relative cursor-pointer group rounded-lg"
+                onClick={() => handlePlay(i)}
+              >
+                <video
+                  ref={(el) => { videoRefs.current[i] = el; }}
+                  src={manager.video}
+                  className="w-full h-full object-cover"
+                  preload="metadata"
+                  playsInline
+                  onEnded={() => setPlayingIndex(null)}
+                  onPause={() => { if (playingIndex === i) setPlayingIndex(null); }}
+                />
+                {/* Custom play/pause overlay */}
+                <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${playingIndex === i ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}>
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#974200] flex items-center justify-center shadow-lg">
+                    {playingIndex === i ? (
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <rect x="6" y="4" width="4" height="16" rx="1" />
+                        <rect x="14" y="4" width="4" height="16" rx="1" />
+                      </svg>
+                    ) : (
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    )}
+                  </div>
                 </div>
+              </div>
+              <div className="py-6">
+                <p className="font-['Satoshi',sans-serif] text-[#361e0f] text-sm md:text-base leading-[1.5] opacity-70">
+                  {manager.name}
+                </p>
               </div>
             </motion.div>
           ))}
