@@ -140,7 +140,6 @@ export default function HomePage() {
         <div className="relative z-10 px-6 md:px-16 pb-12 md:pb-20 pt-8 md:pt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-16">
           {[
             { value: 'Spaces Brought to Life', desc: 'Every project starts with a conversation and ends with a home that truly fits.' },
-            { value: '99% Succes Project', desc: 'Nearly every project completed on time, on budget, and beyond expectations.' },
             { value: 'Professional Team', desc: 'Designers, architects, and craftsmen working together to bring your vision to life.' },
           ].map((stat, i) => (
             <motion.div
