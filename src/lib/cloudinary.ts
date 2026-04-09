@@ -34,7 +34,7 @@ export const projects = {
     ],
   },
   tengah: {
-    name: '224a Tengah Empyrean',
+    name: '224a Tengah',
     hero: 'DSC09789_hjzyni',
     images: [
       'DSC09728_q7gjlu',

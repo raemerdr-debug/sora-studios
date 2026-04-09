@@ -9,7 +9,7 @@ const faqs = [
   },
   { question: 'How does the design process work?', answer: 'Our design process begins with an initial consultation to understand your vision, followed by concept development, detailed design plans, and finally, project execution with regular check-ins.' },
   { question: 'Can Sora work within my budget?', answer: 'Absolutely! We work with a wide range of budgets and will tailor our services to meet your financial needs while still delivering exceptional design solutions.' },
-  { question: 'How long does a typical project take?', answer: 'Project timelines vary based on scope and complexity. A single room redesign may take 4-6 weeks, while a full home renovation can take 3-6 months.' },
+  { question: 'How long does a typical project take?', answer: 'Project timelines vary based on scope and complexity. A single room redesign may take 4-6 weeks, while a full home renovation can take 2-4 months.' },
   { question: 'Do you provide virtual design services?', answer: 'Yes, we offer virtual design consultations and services for clients who prefer remote collaboration or are located outside our immediate service area.' },
   { question: 'Can you work with my existing furniture and decor?', answer: 'Of course! We love incorporating existing pieces that have sentimental value or fit your style. We will blend them seamlessly into the new design.' },
 ];

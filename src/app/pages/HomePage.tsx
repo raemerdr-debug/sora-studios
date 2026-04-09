@@ -7,7 +7,8 @@ import { FAQSection } from '../components/FAQSection';
 import { Footer } from '../components/Footer';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { cloudImg, projects } from '@/lib/cloudinary';
-import imgRectangle67 from "@/assets/cb9db9abc7dcc8b935de132918e5dfd892df0c0d.png";
+
+const heroImage = cloudImg('DSC09723_za8t32', { w: 1920, h: 1080 });
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -26,7 +27,7 @@ export default function HomePage() {
       side2: cloudImg(projects.simsdr.images[1], { w: 540, h: 390 }),
     },
     {
-      name: '224a Tengah Empyrean',
+      name: '224a Tengah',
       desc: 'Contemporary interior redesign',
       main: cloudImg(projects.tengah.hero, { w: 1080, h: 720 }),
       side1: cloudImg(projects.tengah.images[0], { w: 540, h: 720 }),
@@ -76,18 +77,18 @@ export default function HomePage() {
       <div className="relative overflow-hidden">
         {/* Background that spans both hero and stats */}
         <div className="absolute inset-0">
-          <img src={imgRectangle67} alt="" className="w-full h-full object-cover" />
+          <img src={heroImage} alt="" className="w-full h-full object-cover object-[60%_40%] md:object-center" />
           <div className="absolute inset-0 bg-black/27" />
         </div>
         <div className="absolute top-0 left-0 right-0 h-[400px] md:h-[593px] bg-gradient-to-b from-[#0f0e0c] via-[#0f0e0c]/30 to-transparent" />
 
         {/* Hero content - full viewport height */}
-        <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4">
+        <section className="relative z-10 min-h-[70vh] md:min-h-screen flex flex-col items-center justify-center text-center px-4">
           <motion.p
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-['DM_Sans',sans-serif] text-[#fff1e5] text-4xl sm:text-6xl md:text-8xl lg:text-[120px] leading-[1] tracking-[-0.5px] md:tracking-[-1.5px] capitalize whitespace-nowrap"
+            className="font-['DM_Sans',sans-serif] text-[#fff1e5] text-4xl sm:text-6xl md:text-8xl lg:text-[120px] leading-[1] tracking-[-0.5px] md:tracking-[-1.5px] capitalize md:whitespace-nowrap"
           >
             Transforming Spaces into
           </motion.p>
@@ -118,13 +119,13 @@ export default function HomePage() {
           >
             <Link
               to="/projects"
-              className="bg-[#fff1e5] px-8 md:px-14 py-4 md:py-6 rounded-full font-['DM_Sans',sans-serif] text-[#0f0e0c] text-base md:text-2xl no-underline hover:bg-white transition-colors"
+              className="bg-[#fff1e5] px-6 md:px-14 py-3 md:py-6 rounded-full font-['DM_Sans',sans-serif] text-[#0f0e0c] text-sm md:text-2xl no-underline hover:bg-white transition-colors"
             >
               Explore Our Portfolio
             </Link>
             <Link
               to="/projects"
-              className="w-14 h-14 md:w-[77px] md:h-[77px] rounded-full border border-[rgba(255,241,229,0.5)] flex items-center justify-center hover:bg-[rgba(255,241,229,0.1)] transition-colors no-underline"
+              className="w-10 h-10 md:w-[77px] md:h-[77px] rounded-full border border-[rgba(255,241,229,0.5)] flex items-center justify-center hover:bg-[rgba(255,241,229,0.1)] transition-colors no-underline"
             >
               <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
                 <path d="M2 18L9 10L2 2" stroke="#FFF1E5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -252,7 +253,7 @@ export default function HomePage() {
                 />
               </AnimatePresence>
             </div>
-            <div className="h-[200px] md:h-[240px] w-1/2 md:w-full overflow-hidden opacity-80 relative">
+            <div className="h-[200px] md:h-[240px] w-1/2 md:w-full overflow-hidden relative">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.img
                   key={`side2-${currentProject}`}
