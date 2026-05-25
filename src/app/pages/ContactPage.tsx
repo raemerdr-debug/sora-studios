@@ -79,6 +79,27 @@ export default function ContactPage() {
         console.error('Email error (non-blocking):', emailError);
       }
 
+      // Fire Zapier webhook (non-blocking).
+      // Form-encoded body keeps this a "simple" request (no CORS preflight),
+      // which Zapier's catch hook parses into clean individual fields.
+      try {
+        await fetch('https://hooks.zapier.com/hooks/catch/20249199/4oc1fz8/', {
+          method: 'POST',
+          body: new URLSearchParams({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            property_type: formData.property_type,
+            budget: formData.budget,
+            room_count: formData.room_count,
+            preferred_date: formData.preferred_date,
+            message: formData.message,
+          }),
+        });
+      } catch (zapierError) {
+        console.error('Zapier webhook error (non-blocking):', zapierError);
+      }
+
       setStatus('success');
       setFormData({ name: '', email: '', phone: '', property_type: '', budget: '', room_count: '', preferred_date: '', message: '' });
     }
